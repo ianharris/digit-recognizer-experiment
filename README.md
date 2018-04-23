@@ -21,7 +21,7 @@ This repo contains code that allows multiple models to be run to assess their ac
 
 In order to explore the difference in CNN architectures on the results we need to have a proper training and validation set. The data provided as part of the Kaggle competition is certainly a good start but has one draw back; we don't have the labels for the validation set. 
 
-Note: *Kaggle refer to this set as the test set. The term validation is more appropriate for our use as we want it to use it to try and validate various model choices rather than test a selected model.*
+Note: *Kaggle refer to this set as the test set. The term validation is more appropriate for our use as we want it to use it to validate various model choices rather than test a selected model.*
 
 To correctly compare the results of various architectures a set of labelled validation data is a must; we could evaluate the results by predicting on the Kaggle test data set and then submit to Kaggle but that would limit us to 10 validations a day.
 
