@@ -42,6 +42,20 @@ For the purposes of the experiment we will train using batches of 50 images. We 
 
 A high level analysis of number of iterations vs accuracy is presented in the Jupyter Notebook AccuracyPlot.ipynb. The notebook completed with output can be viewed at [docs/AccuracyPlot.md](docs/AccuracyPlot.md)
 
+# Pre-requisites
+
+Before running the models the Kaggle Digit Recognizer training dataset (train.csv) should be downloaded and saved to the datasets directory. The Notebook DataExtraction.ipynb should then be run to produce the new training and validation datasets.
+
+# Running the models
+
+The models can be run by typing:
+
+```python
+python mnist.py
+```
+
+A full run of all eight models with ensembles of three runs can take several hours on a laptop.
+
 # Results
 
 The table below outlines the results from an initial run of models. The models include a variety of CNN architectures as well as one perceptron architecture. 
