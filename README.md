@@ -17,11 +17,11 @@ This implementation does quite well (predicting with ~ 98.5% accuracy) at Kaggle
 This repo contains code that allows multiple models to be run to assess their accuracy.
 
 
-# Training and Test Data Set 
+# Training and Validation Data Set 
 
-In order to explore the difference in CNN architectures on the results we need to have a proper training and test set. The data provided as part of the Kaggle competition is certainly a good start but has one draw back; we don't have the labels for the test set. To correctly compare the results of various architectures a set of labelled test data is a must; we could evaluate the results by predicting on the test data set and then submit to Kaggle but that would limit us to 10 tests a day.
+In order to explore the difference in CNN architectures on the results we need to have a proper training and validation set. The data provided as part of the Kaggle competition is certainly a good start but has one draw back; we don't have the labels for the validation set. To correctly compare the results of various architectures a set of labelled validation data is a must; we could evaluate the results by predicting on the validation data set and then submit to Kaggle but that would limit us to 10 validations a day.
 
-To overcome this issue we will use the Kaggle training set and split it up into a new training and test set. The Kaggle training set has 42,000 labelled images. We will take 10% of this as a test set and keep the other 90% as a training set. When we divide up the set we need to be sure we maintain uniformity - we don't want the test set to consist only of the digit 9, for example.
+To overcome this issue we will use the Kaggle training set and split it up into a new training and validation set. The Kaggle training set has 42,000 labelled images. We will take 10% of this as a validation set and keep the other 90% as a training set. When we divide up the set we need to be sure we maintain uniformity - we don't want the validation set to consist only of the digit 9, for example.
 
 The Jupyter Notebook 'DataExtraction.ipynb' contains the code for extracting the data. It assumes that the 'train.csv' file from Kaggle's Digit Recognizer competition has been downloaded to the 'datasets' subdirectory. The notebook complete with output can be viewed at [docs/DataExtraction.md](docs/DataExtraction.md).
 
