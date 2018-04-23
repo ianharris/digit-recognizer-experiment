@@ -44,7 +44,7 @@ A high level analysis of number of iterations vs accuracy is presented in the Ju
 
 # Pre-requisites
 
-Before running the models the Kaggle Digit Recognizer training dataset (train.csv) should be downloaded and saved to the datasets directory. The Notebook DataExtraction.ipynb should then be run to produce the new training and validation datasets.
+Before running the models the [Kaggle Digit Recognizer training dataset (specifically, train.csv)](https://www.kaggle.com/c/digit-recognizer/data) should be downloaded and saved to the datasets directory. The Notebook DataExtraction.ipynb should then be run to produce the new training and validation datasets.
 
 # Running the models
 
