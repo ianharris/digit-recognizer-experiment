@@ -19,7 +19,11 @@ This repo contains code that allows multiple models to be run to assess their ac
 
 # Training and Validation Data Set 
 
-In order to explore the difference in CNN architectures on the results we need to have a proper training and validation set. The data provided as part of the Kaggle competition is certainly a good start but has one draw back; we don't have the labels for the validation set. To correctly compare the results of various architectures a set of labelled validation data is a must; we could evaluate the results by predicting on the validation data set and then submit to Kaggle but that would limit us to 10 validations a day.
+In order to explore the difference in CNN architectures on the results we need to have a proper training and validation set. The data provided as part of the Kaggle competition is certainly a good start but has one draw back; we don't have the labels for the validation set. 
+
+Note: *Kaggle refer to this set as the test set. The term validation is more appropriate for our use as we want it to use it to try and validate various model choices rather than test a selected model.*
+
+To correctly compare the results of various architectures a set of labelled validation data is a must; we could evaluate the results by predicting on the Kaggle test data set and then submit to Kaggle but that would limit us to 10 validations a day.
 
 To overcome this issue we will use the Kaggle training set and split it up into a new training and validation set. The Kaggle training set has 42,000 labelled images. We will take 10% of this as a validation set and keep the other 90% as a training set. When we divide up the set we need to be sure we maintain uniformity - we don't want the validation set to consist only of the digit 9, for example.
 
@@ -27,7 +31,7 @@ The Jupyter Notebook 'DataExtraction.ipynb' contains the code for extracting the
 
 # Areas of Investigation
 
-There are many parts of the CNN architecture that we could vary so we need to limit ourselves to certain areas. Specifically, we will _not_ investigate the following parts of the architecture (at least at this point):
+There are many parts of the CNN architecture that we could vary so we need to limit ourselves to certain areas. Specifically, we will __not__ investigate the following parts of the architecture (at least at this point):
 
 * the use of Softmax with a Cross Entropy loss
 * the use of the Adam optimizer
