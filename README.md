@@ -50,7 +50,7 @@ Before running the models the [Kaggle Digit Recognizer training dataset (specifi
 
 The models can be run by typing:
 
-```python
+```bash
 python mnist.py
 ```
 
