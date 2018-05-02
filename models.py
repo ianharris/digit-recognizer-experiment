@@ -98,8 +98,8 @@ def get_models(x, y):
 
     # build the sixth model
     m6desc = """
-     Very basic CNN
      * one convolutional layer with 1 filters and ReLU activation
+     * one fully connected layer with 1024 neurons, ReLU and dropout
      * an output layer
     """
     c6a = convolutional_layer_with_relu(5, 5, 1, 1, x)
@@ -119,6 +119,57 @@ def get_models(x, y):
     (t7, acc7) = get_train_and_accuracy(y, fco7)
     m7 = (m7desc, t7, acc7, None)
 
-    return [ m0, m1, m2, m3, m4, m5, m6, m7 ]
-    # return [ m7 ]
+    # build the 8th model
+    m8desc = """
+     * one convolutional layer with 2 filters and ReLU activation
+     * one fully connected layer with 1024 neurons, ReLU and dropout
+     * an output layer
+    """
+    c8a = convolutional_layer_with_relu(5, 5, 1, 2, x)
+    c8a_flat = tf.reshape(c8a, [-1, 14 * 14 * 2])
+    fc8a, kpa8 = fully_connected_layer_with_relu_and_dropout(14 * 14 * 2, 1024, c8a_flat)
+    fco8 = fully_connected_layer(1024, 10, fc8a)
+    (t8, acc8) = get_train_and_accuracy(y, fco8)
+    m8 = (m8desc, t8, acc8, kpa8)
+
+    # build the 9th model
+    m9desc = """
+     * one convolutional layer with 4 filters and ReLU activation
+     * one fully connected layer with 1024 neurons, ReLU and dropout
+     * an output layer
+    """
+    c9a = convolutional_layer_with_relu(5, 5, 1, 4, x)
+    c9a_flat = tf.reshape(c9a, [-1, 14 * 14 * 4])
+    fc9a, kpa9 = fully_connected_layer_with_relu_and_dropout(14 * 14 * 4, 1024, c9a_flat)
+    fco9 = fully_connected_layer(1024, 10, fc9a)
+    (t9, acc9) = get_train_and_accuracy(y, fco9)
+    m9 = (m9desc, t9, acc9, kpa9)
+
+    # build the 10th model
+    m10desc = """
+     * one convolutional layer with 8 filters and ReLU activation
+     * one fully connected layer with 1024 neurons, ReLU and dropout
+     * an output layer
+    """
+    c10a = convolutional_layer_with_relu(5, 5, 1, 8, x)
+    c10a_flat = tf.reshape(c10a, [-1, 14 * 14 * 8])
+    fc10a, kpa10 = fully_connected_layer_with_relu_and_dropout(14 * 14 * 8, 1024, c10a_flat)
+    fco10 = fully_connected_layer(1024, 10, fc10a)
+    (t10, acc10) = get_train_and_accuracy(y, fco10)
+    m10 = (m10desc, t10, acc10, kpa10)
+
+    # build the 11th model
+    m11desc = """
+     * one convolutional layer with 16 filters and ReLU activation
+     * one fully connected layer with 1024 neurons, ReLU and dropout
+     * an output layer
+    """
+    c11a = convolutional_layer_with_relu(5, 5, 1, 16, x)
+    c11a_flat = tf.reshape(c11a, [-1, 14 * 14 * 16])
+    fc11a, kpa11= fully_connected_layer_with_relu_and_dropout(14 * 14 * 16, 1024, c11a_flat)
+    fco11 = fully_connected_layer(1024, 10, fc11a)
+    (t11, acc11) = get_train_and_accuracy(y, fco11)
+    m11 = (m11desc, t11, acc11, kpa11)
+
+    return [ m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11 ]
 

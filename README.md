@@ -74,19 +74,22 @@ Somewhat surprisingly, almost all of the CNNs achieved comparable validation acc
 |3             |<ul><li>one convolutional layer with 32 filters and leaky ReLU activation</li><li>one convolutional layer with 64 filters and leaky ReLU activation</li><li>one fully connected layer with 1024 neurons, ReLU and dropout</li><li>an output layer</li></ul> | [0.97170711, 0.97242033, 0.97432238] | 0.972817 | 
 |4             |<ul><li>one convolutional layer with 32 filters and leaky ReLU activation</li><li>one fully connected layer with 1024 neurons, ReLU and dropout</li><li>an output layer</li></ul> | [0.96885401, 0.96861625, 0.96600097] | 0.967824 |
 |5             |<ul><li>one convolutional layer with 64 filters and ReLU activation</li><li>one fully connected layer with 1024 neurons, ReLU and dropout</li><li>an output layer</li></ul> | [0.96790302, 0.97194487, 0.97432238] | 0.97139 |
-|6             |<ul><li>one convolutional layer with 1 filters and ReLU activation</li><li>one fully connected layer with 1024 neurons, ReLU and dropout</li><li>an output layer</li></ul> | [0.85520685, 0.8673324, 0.85354257] | 0.858694 |
+|6             |<ul><li>one convolutional layer with 1 filters and ReLU activation</li><li>one fully connected layer with 1024 neurons, ReLU and dropout</li><li>an output layer</li></ul> | [0.85520685, 0.8673324, 0.85354257] <span color='red'>[0.85901093, 0.80218732, 0.91226816]</span> | 0.858694 <span color='red'>0.857822</span> |
 |7             |<ul><li>no hidden layers input fully connected to output</li></ul> | [0.85068947, 0.84854966, 0.86162627] | 0.853622 |
+|8             |<ul><li>one convolutional layer with 2 filters and ReLU activation</li><li>one fully connected layer with 1024 neurons, ReLU and dropout</li><li>an output layer</li></ul> | [0.94674277, 0.94816929, 0.92035186] | 0.938421 |
+|9             |<ul><li>one convolutional layer with 4 filters and ReLU activation</li><li>one fully connected layer with 1024 neurons, ReLU and dropout</li><li>an output layer</li></ul> | [0.94840705, 0.9667142, 0.9503091] | 0.955143 |
+|10             |<ul><li>one convolutional layer with 8 filters and ReLU activation</li><li>one fully connected layer with 1024 neurons, ReLU and dropout</li><li>an output layer</li></ul> | [0.97028053, 0.97289586, 0.96623868] | 0.969805 |
+|11             |<ul><li>one convolutional layer with 16 filters and ReLU activation</li><li>one fully connected layer with 1024 neurons, ReLU and dropout</li><li>an output layer</li></ul> | [0.96077031, 0.97218257, 0.96766526] | 0.966873 |
 
 # Conclusion
 
-In this initial set of model runs we saw that reducing the number of convolutional layers in a CNN from two to one had no significant effect on model accuracy as long as the number of filters in the convoluational layer remained high; in our case 32 or 64. When the number of filters in a CNN with a single convolutional layer was reduced to one, the model performed as poorly as a multiclass perceptron.
+In this initial set of model runs we saw that reducing the number of convolutional layers in a CNN from two to one had no significant effect on model accuracy as long as the number of filters in the convoluational layer remained high; in our case 32 or 64. When the number of filters in a CNN with a single convolutional layer was reduced to one, the model ensemble performed as poorly as a multiclass perceptron. 
+
+_It should be noted that there were two runs, one in which the accuracies in the ensemble were relatively close in value and one in which the accuracies in the ensemble showed some variation. This would indicate that chosen iteration count of 5,000 was insufficient for the network with a single convulational layer with 1 filter to converge._
 
 The effect of using ReLU vs leaky ReLU activation functions was also negligible for CNNs with multiple fitlers in their layers.
 
-With the current results in mind, the next set of investigations should focus on:
-
-* CNNs with a single convolutional layer with low levels of filters e.g. [ 1, 2, 4, 8, 16 ]
-* Varying the dropout in the network e.g. [ 0.3, 0.5, 0.7 ]
+Collectively, the results indicate that even relatively simple CNNs can achieve quite high accuracies on the MNIST data challenge. With that in mind, a more difficult image processing task may be required to gain insight into the purpose of various layers in a convolutional neural network. Once I've identified a suitable data set, I will run a similar analysis with that goal again in mind.
 
 
 
